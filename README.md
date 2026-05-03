@@ -11,7 +11,7 @@ No frameworks, no dependencies, just PowerShell.
 - **Vision Support** — Automatically encodes images (PNG, JPG, GIF, WebP) as base64 for multimodal models
 - **Streaming** — Real-time streaming of reasoning and responses
 - **Skills System** — On-demand instruction sets that extend agent capabilities without bloating the system prompt
-- **Project Memory** — Injects `workspace.md` into the system prompt for persistent context
+- **Project Memory** — Injects `AGENTS.md` into the system prompt for persistent context
 - **Chat History** — Saves conversations to `.agents/history.md` for future reference
 - **Interactive Controls**
   - `Esc` — Stop generation mid-stream
@@ -44,7 +44,7 @@ Skills are modular instruction sets in `.agents/skills/`. Only a manifest (name 
 | `sendkeys` | Simulate keyboard input and key combinations |
 | `caveman` | Ultra-compressed communication mode — cuts token usage ~75% |
 | `grill-me` | Stress-test a plan or design through relentless questioning |
-| `perplexity` | Research topics using Perplexity AI via the browser |
+| `test-workflow` | Verifies basic file system tools by performing write, edit, read, and delete operations in sequence |
 
 To add a skill, create `.agents/skills/<name>.md` with YAML frontmatter (`name` + `description`) and optionally a companion `.ps1` script.
 
@@ -109,7 +109,7 @@ localcode-ps.ps1          # Agent entry point (single file, ~200 lines)
 .env                      # Local configuration (not tracked)
 .env.example              # Configuration template
 .agents/
-  workspace.md            # Persistent project memory & instructions
+  AGENTS.md               # Persistent project memory & instructions
   history.md              # Chat history log
   skills/
     <name>.md             # Skill instructions (YAML frontmatter + markdown)
